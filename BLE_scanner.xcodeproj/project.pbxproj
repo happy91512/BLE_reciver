@@ -1,0 +1,633 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E8142B762BBD2980006FC109 /* Reciver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8142B752BBD2980006FC109 /* Reciver.swift */; };
+		E84949A02BA938B900D1C893 /* BLE_scannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E849499F2BA938B900D1C893 /* BLE_scannerApp.swift */; };
+		E84949A22BA938B900D1C893 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84949A12BA938B900D1C893 /* ContentView.swift */; };
+		E84949A72BA938BA00D1C893 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E84949A62BA938BA00D1C893 /* Preview Assets.xcassets */; };
+		E84949B12BA938BA00D1C893 /* BLE_scannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84949B02BA938BA00D1C893 /* BLE_scannerTests.swift */; };
+		E84949BB2BA938BA00D1C893 /* BLE_scannerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84949BA2BA938BA00D1C893 /* BLE_scannerUITests.swift */; };
+		E84949BD2BA938BA00D1C893 /* BLE_scannerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84949BC2BA938BA00D1C893 /* BLE_scannerUITestsLaunchTests.swift */; };
+		E84949CA2BA9438600D1C893 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E84949C92BA9438600D1C893 /* Media.xcassets */; };
+		E84E9E6F2BCD27650062F477 /* MonitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84E9E6E2BCD27650062F477 /* MonitorView.swift */; };
+		E8E1FEC72BC3CBF200594FF6 /* Dev.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E8E1FEC52BC3CBF200594FF6 /* Dev.xcdatamodeld */; };
+		E8FA8C872BC50DB900B10D26 /* MeasureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FA8C862BC50DB900B10D26 /* MeasureView.swift */; };
+		E8FA8C8A2BC50EB200B10D26 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FA8C892BC50EB200B10D26 /* AccountView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E84949AD2BA938BA00D1C893 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E84949942BA938B900D1C893 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E849499B2BA938B900D1C893;
+			remoteInfo = BLE_scanner;
+		};
+		E84949B72BA938BA00D1C893 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E84949942BA938B900D1C893 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E849499B2BA938B900D1C893;
+			remoteInfo = BLE_scanner;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E8142B752BBD2980006FC109 /* Reciver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reciver.swift; sourceTree = "<group>"; };
+		E849499C2BA938B900D1C893 /* BLE_scanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLE_scanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E849499F2BA938B900D1C893 /* BLE_scannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLE_scannerApp.swift; sourceTree = "<group>"; };
+		E84949A12BA938B900D1C893 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E84949A62BA938BA00D1C893 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E84949AC2BA938BA00D1C893 /* BLE_scannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLE_scannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E84949B02BA938BA00D1C893 /* BLE_scannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLE_scannerTests.swift; sourceTree = "<group>"; };
+		E84949B62BA938BA00D1C893 /* BLE_scannerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLE_scannerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E84949BA2BA938BA00D1C893 /* BLE_scannerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLE_scannerUITests.swift; sourceTree = "<group>"; };
+		E84949BC2BA938BA00D1C893 /* BLE_scannerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLE_scannerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E84949C92BA9438600D1C893 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		E84E9E6E2BCD27650062F477 /* MonitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorView.swift; sourceTree = "<group>"; };
+		E88851C52BB29DC70086D556 /* BLE-scanner-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "BLE-scanner-Info.plist"; sourceTree = SOURCE_ROOT; };
+		E8E1FEC62BC3CBF200594FF6 /* Dev.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Dev.xcdatamodel; sourceTree = "<group>"; };
+		E8FA8C862BC50DB900B10D26 /* MeasureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureView.swift; sourceTree = "<group>"; };
+		E8FA8C892BC50EB200B10D26 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E84949992BA938B900D1C893 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E84949A92BA938BA00D1C893 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E84949B32BA938BA00D1C893 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E84949932BA938B900D1C893 = {
+			isa = PBXGroup;
+			children = (
+				E849499E2BA938B900D1C893 /* BLE_scanner */,
+				E84949AF2BA938BA00D1C893 /* BLE_scannerTests */,
+				E84949B92BA938BA00D1C893 /* BLE_scannerUITests */,
+				E849499D2BA938B900D1C893 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E849499D2BA938B900D1C893 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E849499C2BA938B900D1C893 /* BLE_scanner.app */,
+				E84949AC2BA938BA00D1C893 /* BLE_scannerTests.xctest */,
+				E84949B62BA938BA00D1C893 /* BLE_scannerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E849499E2BA938B900D1C893 /* BLE_scanner */ = {
+			isa = PBXGroup;
+			children = (
+				E88851C52BB29DC70086D556 /* BLE-scanner-Info.plist */,
+				E8142B752BBD2980006FC109 /* Reciver.swift */,
+				E8E1FEC52BC3CBF200594FF6 /* Dev.xcdatamodeld */,
+				E849499F2BA938B900D1C893 /* BLE_scannerApp.swift */,
+				E8FA8C892BC50EB200B10D26 /* AccountView.swift */,
+				E8FA8C862BC50DB900B10D26 /* MeasureView.swift */,
+				E84949C92BA9438600D1C893 /* Media.xcassets */,
+				E84949A12BA938B900D1C893 /* ContentView.swift */,
+				E84E9E6E2BCD27650062F477 /* MonitorView.swift */,
+				E84949A52BA938BA00D1C893 /* Preview Content */,
+			);
+			path = BLE_scanner;
+			sourceTree = "<group>";
+		};
+		E84949A52BA938BA00D1C893 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				E84949A62BA938BA00D1C893 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E84949AF2BA938BA00D1C893 /* BLE_scannerTests */ = {
+			isa = PBXGroup;
+			children = (
+				E84949B02BA938BA00D1C893 /* BLE_scannerTests.swift */,
+			);
+			path = BLE_scannerTests;
+			sourceTree = "<group>";
+		};
+		E84949B92BA938BA00D1C893 /* BLE_scannerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E84949BA2BA938BA00D1C893 /* BLE_scannerUITests.swift */,
+				E84949BC2BA938BA00D1C893 /* BLE_scannerUITestsLaunchTests.swift */,
+			);
+			path = BLE_scannerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E849499B2BA938B900D1C893 /* BLE_scanner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E84949C02BA938BA00D1C893 /* Build configuration list for PBXNativeTarget "BLE_scanner" */;
+			buildPhases = (
+				E84949982BA938B900D1C893 /* Sources */,
+				E84949992BA938B900D1C893 /* Frameworks */,
+				E849499A2BA938B900D1C893 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BLE_scanner;
+			productName = BLE_scanner;
+			productReference = E849499C2BA938B900D1C893 /* BLE_scanner.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E84949AB2BA938BA00D1C893 /* BLE_scannerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E84949C32BA938BA00D1C893 /* Build configuration list for PBXNativeTarget "BLE_scannerTests" */;
+			buildPhases = (
+				E84949A82BA938BA00D1C893 /* Sources */,
+				E84949A92BA938BA00D1C893 /* Frameworks */,
+				E84949AA2BA938BA00D1C893 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E84949AE2BA938BA00D1C893 /* PBXTargetDependency */,
+			);
+			name = BLE_scannerTests;
+			productName = BLE_scannerTests;
+			productReference = E84949AC2BA938BA00D1C893 /* BLE_scannerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E84949B52BA938BA00D1C893 /* BLE_scannerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E84949C62BA938BA00D1C893 /* Build configuration list for PBXNativeTarget "BLE_scannerUITests" */;
+			buildPhases = (
+				E84949B22BA938BA00D1C893 /* Sources */,
+				E84949B32BA938BA00D1C893 /* Frameworks */,
+				E84949B42BA938BA00D1C893 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E84949B82BA938BA00D1C893 /* PBXTargetDependency */,
+			);
+			name = BLE_scannerUITests;
+			productName = BLE_scannerUITests;
+			productReference = E84949B62BA938BA00D1C893 /* BLE_scannerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E84949942BA938B900D1C893 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					E849499B2BA938B900D1C893 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					E84949AB2BA938BA00D1C893 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = E849499B2BA938B900D1C893;
+					};
+					E84949B52BA938BA00D1C893 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = E849499B2BA938B900D1C893;
+					};
+				};
+			};
+			buildConfigurationList = E84949972BA938B900D1C893 /* Build configuration list for PBXProject "BLE_scanner" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E84949932BA938B900D1C893;
+			productRefGroup = E849499D2BA938B900D1C893 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E849499B2BA938B900D1C893 /* BLE_scanner */,
+				E84949AB2BA938BA00D1C893 /* BLE_scannerTests */,
+				E84949B52BA938BA00D1C893 /* BLE_scannerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E849499A2BA938B900D1C893 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E84949CA2BA9438600D1C893 /* Media.xcassets in Resources */,
+				E84949A72BA938BA00D1C893 /* Preview Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E84949AA2BA938BA00D1C893 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E84949B42BA938BA00D1C893 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E84949982BA938B900D1C893 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E84949A22BA938B900D1C893 /* ContentView.swift in Sources */,
+				E84E9E6F2BCD27650062F477 /* MonitorView.swift in Sources */,
+				E8E1FEC72BC3CBF200594FF6 /* Dev.xcdatamodeld in Sources */,
+				E8142B762BBD2980006FC109 /* Reciver.swift in Sources */,
+				E8FA8C872BC50DB900B10D26 /* MeasureView.swift in Sources */,
+				E84949A02BA938B900D1C893 /* BLE_scannerApp.swift in Sources */,
+				E8FA8C8A2BC50EB200B10D26 /* AccountView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E84949A82BA938BA00D1C893 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E84949B12BA938BA00D1C893 /* BLE_scannerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E84949B22BA938BA00D1C893 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E84949BB2BA938BA00D1C893 /* BLE_scannerUITests.swift in Sources */,
+				E84949BD2BA938BA00D1C893 /* BLE_scannerUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E84949AE2BA938BA00D1C893 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E849499B2BA938B900D1C893 /* BLE_scanner */;
+			targetProxy = E84949AD2BA938BA00D1C893 /* PBXContainerItemProxy */;
+		};
+		E84949B82BA938BA00D1C893 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E849499B2BA938B900D1C893 /* BLE_scanner */;
+			targetProxy = E84949B72BA938BA00D1C893 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E84949BE2BA938BA00D1C893 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E84949BF2BA938BA00D1C893 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E84949C12BA938BA00D1C893 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BLE_scanner/Preview Content\"";
+				DEVELOPMENT_TEAM = 2BW68397UA;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BLE-scanner-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Ted.BLE-scanner";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E84949C22BA938BA00D1C893 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BLE_scanner/Preview Content\"";
+				DEVELOPMENT_TEAM = 2BW68397UA;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BLE-scanner-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Ted.BLE-scanner";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E84949C42BA938BA00D1C893 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2BW68397UA;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Ted.BLE-scannerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BLE_scanner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BLE_scanner";
+			};
+			name = Debug;
+		};
+		E84949C52BA938BA00D1C893 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2BW68397UA;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Ted.BLE-scannerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BLE_scanner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BLE_scanner";
+			};
+			name = Release;
+		};
+		E84949C72BA938BA00D1C893 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2BW68397UA;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Ted.BLE-scannerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BLE_scanner;
+			};
+			name = Debug;
+		};
+		E84949C82BA938BA00D1C893 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2BW68397UA;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Ted.BLE-scannerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BLE_scanner;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E84949972BA938B900D1C893 /* Build configuration list for PBXProject "BLE_scanner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E84949BE2BA938BA00D1C893 /* Debug */,
+				E84949BF2BA938BA00D1C893 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E84949C02BA938BA00D1C893 /* Build configuration list for PBXNativeTarget "BLE_scanner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E84949C12BA938BA00D1C893 /* Debug */,
+				E84949C22BA938BA00D1C893 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E84949C32BA938BA00D1C893 /* Build configuration list for PBXNativeTarget "BLE_scannerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E84949C42BA938BA00D1C893 /* Debug */,
+				E84949C52BA938BA00D1C893 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E84949C62BA938BA00D1C893 /* Build configuration list for PBXNativeTarget "BLE_scannerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E84949C72BA938BA00D1C893 /* Debug */,
+				E84949C82BA938BA00D1C893 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E8E1FEC52BC3CBF200594FF6 /* Dev.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E8E1FEC62BC3CBF200594FF6 /* Dev.xcdatamodel */,
+			);
+			currentVersion = E8E1FEC62BC3CBF200594FF6 /* Dev.xcdatamodel */;
+			name = Dev.xcdatamodeld;
+			path = /Users/teddddd/Documents/code/cathay_intern/ios_app_dev/Dev/Dev/Dev.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E84949942BA938B900D1C893 /* Project object */;
+}
