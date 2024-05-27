@@ -49,6 +49,53 @@ struct ScatterChartRepresentable: UIViewRepresentable {
     }
 }
 
+struct LineChartRepresentable: UIViewRepresentable {
+    var deviceData: [(testData: [String], unitsSold: [Double], color: Color, shape: ScatterChartDataSet.Shape)]
+    var showData: [Bool]
+    var ColumnName: [String]
+
+    func makeUIView(context: Context) -> LineChartView {
+        let lineChartView = LineChartView()
+        setChart(lineChartView: lineChartView)
+        lineChartView.animate(xAxisDuration: 1.5, easingOption: .easeInCirc)
+        return lineChartView
+    }
+
+    func updateUIView(_ uiView: LineChartView, context: Context) {
+        setChart(lineChartView: uiView)
+    }
+
+    private func setChart(lineChartView: LineChartView) {
+        var dataSets: [LineChartDataSet] = []
+
+        for (index, data) in deviceData.enumerated() {
+            if showData[index] {
+                var dataEntries: [ChartDataEntry] = []
+                for i in 0..<data.testData.count {
+                    let dataEntry = ChartDataEntry(x: Double(i), y: data.unitsSold[i])
+                    dataEntries.append(dataEntry)
+                }
+                let chartDataSet = LineChartDataSet(entries: dataEntries, label: ColumnName[index])
+                chartDataSet.setColor(UIColor(data.color))
+                chartDataSet.setCircleColor(UIColor(data.color))
+                chartDataSet.circleRadius = 5.0
+                chartDataSet.lineWidth = 2.0
+                dataSets.append(chartDataSet)
+            }
+        }
+
+        let chartData = LineChartData(dataSets: dataSets)
+        lineChartView.data = chartData
+
+        lineChartView.rightAxis.enabled = false
+        lineChartView.xAxis.labelPosition = .bottom
+        if !deviceData.isEmpty {
+            lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: deviceData[0].testData)
+        }
+        lineChartView.xAxis.granularity = 1
+        lineChartView.xAxis.labelRotationAngle = -45
+    }
+}
 
 struct ThermoEntity: Identifiable {
     let id = UUID()
@@ -72,14 +119,12 @@ struct SPO2Entity: Identifiable{
     let pulseRate: Int
 }
 
-
 struct ScaleEntity: Identifiable{
     let id = UUID()
     let timestamp: String
     let weight: Double
     let impedence: Double
 }
-
 
 
 func convertToThermoEntities(fetchedResults: FetchedResults<Thermo_entity>) -> [ThermoEntity] {
@@ -94,6 +139,17 @@ func convertToBPEntities(fetchedResults: FetchedResults<BP_entity>) -> [BPEntity
     }
 }
 
+func convertToSPO2Entities(fetchedResults: FetchedResults<SPO2_entity>) -> [SPO2Entity] {
+    return fetchedResults.map { entity in
+        SPO2Entity(timestamp: entity.timestamp ?? "", spo2: Int(entity.spo2), pulseRate: Int(entity.pulse_rate))
+    }
+}
+
+func convertToScaleEntities(fetchedResults: FetchedResults<Scale_entity>) -> [ScaleEntity] {
+    return fetchedResults.map { entity in
+        ScaleEntity(timestamp: entity.timestamp ?? "", weight: entity.weight, impedence: entity.impedence)
+    }
+}
 
 func convertToThermoDeviceData(entities: [ThermoEntity]) -> [(testData: [String], unitsSold: [Double], color: Color, shape: ScatterChartDataSet.Shape)] {
     let timestamps = entities.map { $0.timestamp }
@@ -120,18 +176,31 @@ func convertToBPDeviceData(entities: [BPEntity]) -> [(testData: [String], unitsS
     ]
 }
 
+func convertToSPO2DeviceData(entities: [SPO2Entity]) -> [(testData: [String], unitsSold: [Double], color: Color, shape: ScatterChartDataSet.Shape)] {
+    let timestamps = entities.map { $0.timestamp }
+    let spo2 = entities.map { Double($0.spo2) }
+    let pulseRate = entities.map { Double($0.pulseRate) }
 
-func convertToSPO2Entities(fetchedResults: FetchedResults<SPO2_entity>) -> [SPO2Entity] {
-    return fetchedResults.map { entity in
-        SPO2Entity(timestamp: entity.timestamp ?? "", spo2: Int(entity.spo2), pulseRate: Int(entity.pulse_rate))
-    }
+    return [
+        (testData: timestamps, unitsSold: spo2, color: .blue, shape: .circle),
+        (testData: timestamps, unitsSold: pulseRate, color: .red, shape: .cross)
+    ]
 }
 
-func convertToScaleEntities(fetchedResults: FetchedResults<Scale_entity>) -> [ScaleEntity] {
-    return fetchedResults.map { entity in
-        ScaleEntity(timestamp: entity.timestamp ?? "", weight: entity.weight, impedence: entity.impedence)
-    }
+func convertToScaleDeviceData(entities: [ScaleEntity]) -> [(testData: [String], unitsSold: [Double], color: Color, shape: ScatterChartDataSet.Shape)] {
+    let timestamps = entities.map { $0.timestamp }
+    let weight = entities.map { $0.weight }
+    let impedence = entities.map { $0.impedence }
+
+    return [
+        (testData: timestamps, unitsSold: weight, color: .blue, shape: .circle),
+        (testData: timestamps, unitsSold: impedence, color: .red, shape: .cross)
+    ]
 }
+
+
+
+
 
 
 

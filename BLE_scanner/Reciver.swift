@@ -2,27 +2,12 @@ import CoreBluetooth
 import SwiftUI
 import CoreData
 import Foundation
+import HealthKit
+
 enum thermometer_reciever {
     struct PersistenceController {
         static let shared = PersistenceController()
 
-        static var preview: PersistenceController = {
-            let result = PersistenceController(inMemory: true)
-            let viewContext = result.container.viewContext
-            for _ in 0..<10 {
-                let newItem = Item(context: viewContext)
-                newItem.timestamp = Date()
-            }
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-            return result
-        }()
 
         let container: NSPersistentContainer
 
@@ -151,8 +136,8 @@ enum thermometer_reciever {
                 }
             }
         }
-
-        // Delegate method to handle updates in the value of a characteristic
+        var tempertureArray = [Double]()
+        let context = persistenceController.container.viewContext
         func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
             if let value = characteristic.value, characteristic.uuid == CBUUID(string: "0000fff1-0000-1000-8000-00805f9b34fb") {
                 let hexString = value.map { String(format: "%02hhx", $0) }.joined()
@@ -161,8 +146,25 @@ enum thermometer_reciever {
                     if let convertedData = self.processHexString(hexString) {
                         self.receivedData = String(format: "%.2f°C", convertedData)
                         self.statusMessage = "Received raw data: \(hexString)"
+                        self.tempertureArray.append(convertedData)
+                        
+                        
                     } else {
                         self.statusMessage = "Error in processing data."
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        let averageTemperature = self.tempertureArray.reduce(0.0, +) / max(Double(self.tempertureArray.count), 1)
+                        if !(self.tempertureArray.isEmpty){
+                            print("Average Temperture: \(averageTemperature)")
+                            let newThermoData = Thermo_entity(context: self.context)
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                            let dateString = dateFormatter.string(from: Date())
+                            newThermoData.timestamp = dateString
+                            newThermoData.temperature = averageTemperature
+                        }
+                        self.tempertureArray.removeAll()
+                        self.statusMessage = "The data has been recorded to the database."
                     }
                 }
             }
@@ -276,25 +278,6 @@ enum thermometer_reciever {
 enum OP_reciever {
     struct PersistenceController {
         static let shared = PersistenceController()
-
-        static var preview: PersistenceController = {
-            let result = PersistenceController(inMemory: true)
-            let viewContext = result.container.viewContext
-            for _ in 0..<10 {
-                let newItem = Item(context: viewContext)
-                newItem.timestamp = Date()
-            }
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-            return result
-        }()
-
         let container: NSPersistentContainer
 
         init(inMemory: Bool = false) {
@@ -304,17 +287,6 @@ enum OP_reciever {
             }
             container.loadPersistentStores(completionHandler: { (storeDescription, error) in
                 if let error = error as NSError? {
-                    // Replace this implementation with code to handle the error appropriately.
-                    // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-
-                    /*
-                     Typical reasons for an error here include:
-                     * The parent directory does not exist, cannot be created, or disallows writing.
-                     * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                     * The device is out of space.
-                     * The store could not be migrated to the current model version.
-                     Check the error message to determine what the actual problem was.
-                     */
                     fatalError("Unresolved error \(error), \(error.userInfo)")
                 }
             })
@@ -423,28 +395,59 @@ enum OP_reciever {
             }
         }
 
-        // Delegate method to handle updates in the value of a characteristic
+        var oxygenPercentageArray = [Int]()
+        var heartRateArray = [Int]()
+        let context = persistenceController.container.viewContext
         func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
             if let value = characteristic.value, characteristic.uuid == CBUUID(string: "6E40F682-B5A3-F393-E0A9-E50E24DCCA9E") {
                 let hexString = value.map { String(format: "%02hhx", $0) }.joined()
                 
                 DispatchQueue.main.async {
                     if let convertedData = self.processHexString(hexString) {
-                        self.receivedData = String(convertedData)
+                        self.oxygenPercentageArray.append(convertedData.OP)
+                        self.heartRateArray.append(convertedData.heartRate)
                         self.statusMessage = "Received raw data: \(hexString)"
-                    } 
-                    else {
+                        self.receivedData = 
+                        "status: \(convertedData.status)\n" +
+                        "OP: \(convertedData.OP)\n" +
+                        "heart_rate: \(convertedData.heartRate) bpm"
+                    } else {
                         self.statusMessage = "Error in processing data."
+                    }
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
+                        let averageOP = self.oxygenPercentageArray.reduce(0, +) / max(self.oxygenPercentageArray.count, 1)
+                        let averageHR = self.heartRateArray.reduce(0, +) / max(self.heartRateArray.count, 1)
+                        
+                        if !(self.oxygenPercentageArray.isEmpty) && !(self.heartRateArray.isEmpty){
+                            print("Average oxygenPercentage: \(averageOP)")
+                            print("Average heartRate: \(averageHR)")
+                            let newSPO2Data = SPO2_entity(context: self.context)
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                            let dateString = dateFormatter.string(from: Date())
+                            newSPO2Data.timestamp = dateString
+                            newSPO2Data.spo2 = Int16(averageOP)
+                            newSPO2Data.pulse_rate = Int16(averageHR)
+                        }
+                        if HKHealthStore.isHealthDataAvailable() {
+                            let healthStore = HKHealthStore()
+                        }
+                        
+                        
+                        self.oxygenPercentageArray.removeAll()
+                        self.heartRateArray.removeAll()
+                        
+                        self.statusMessage = "The data has been recorded to the database."
+                        self.centralManager.cancelPeripheralConnection(peripheral)
                     }
                 }
             }
         }
         
-        // Utility function to process the received hex string data
-        func processHexString(_ hexString: String) -> String? {
+        func processHexString(_ hexString: String) -> (status: String, OP: Int, heartRate: Int)? {
             guard hexString.count >= 6 else { return nil } // 確保字符串長度至少為6個字符
             
-            // 將十六進制字符串轉換為字節數組
             var byteArray = [UInt8]()
             var index = hexString.startIndex
             while index < hexString.endIndex {
@@ -459,15 +462,10 @@ enum OP_reciever {
             
             // 解碼字節數組
             let measureStatus = byteArray[0] == 0x00 ? "未偵測到手指" : "偵測到手指"
-            let oxygenPercentage = byteArray[1]
-            let heartRate = byteArray[2]
+            let oxygenPercentage = Int(byteArray[1])
+            let heartRate = Int(byteArray[2])
             
-            // 生成結果字符串
-            let result = "status: \(measureStatus)\n" +
-            "OP: \(oxygenPercentage)\n" +
-            "heart_rate: \(heartRate) bpm"
-            
-            return result
+            return (measureStatus, oxygenPercentage, heartRate)
         }
     }
     
@@ -559,25 +557,6 @@ enum OP_reciever {
 enum scale_reciever {
     struct PersistenceController {
         static let shared = PersistenceController()
-
-        static var preview: PersistenceController = {
-            let result = PersistenceController(inMemory: true)
-            let viewContext = result.container.viewContext
-            for _ in 0..<10 {
-                let newItem = Item(context: viewContext)
-                newItem.timestamp = Date()
-            }
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-            return result
-        }()
-
         let container: NSPersistentContainer
 
         init(inMemory: Bool = false) {
@@ -655,33 +634,59 @@ enum scale_reciever {
             }
         }
         
-        // Delegate method to handle discovery of a peripheral device
+        var weightArray = [Double]()
+        var impedenceArray = [Double]()
+        let context = persistenceController.container.viewContext
         func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String: Any], rssi RSSI: NSNumber) {
-            
             if peripheral.name == deviceName {
                 self.peripheral = peripheral
-//                statusMessage = "Found device, connecting to \(peripheral.name ?? "")"
+                        statusMessage = "Found device, connecting to \(peripheral.name ?? "")"
             }
-            
             
             if let serviceData = advertisementData["kCBAdvDataServiceData"] as? [CBUUID: Data],
                let bodyCompositionData = serviceData[CBUUID(string: "0000181b-0000-1000-8000-00805f9b34fb")] {
                 let hexString = bodyCompositionData.map { String(format: "%02x", $0) }.joined()
-                DispatchQueue.main.async {
-                    if let convertedData = self.decodeBodyCompositionData(hexString) {
-                        self.receivedData = String(convertedData)
-                        self.statusMessage = "Received raw data: \(hexString)"
-                    }
-                    else {
-                        self.statusMessage = "Error in processing data."
-                    }
+                if let convertedData = self.decodeBodyCompositionData(hexString) {
+                    self.weightArray.append(convertedData.body_weight)
+                    self.impedenceArray.append(convertedData.miimpedance)
+                    let result = "\nMeasured: \(convertedData.body_weight) kg\n" +
+                                 "Impedance: \(convertedData.miimpedance) ohm"
+                    self.receivedData = String(result)
+                    self.statusMessage = "Received raw data: \(hexString)"
+                } else {
+                    self.statusMessage = "Error in decoding data."
                 }
+
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
+                let averageWeight = self.weightArray.reduce(0, +) / max(Double(self.weightArray.count), 1)
+                let averageImpedence = self.impedenceArray.reduce(0, +) / max(Double(self.impedenceArray.count), 1)
+                if self.weightArray.count > 4{
+                    print(self.weightArray)
+                    print("Average weight: \(averageWeight)")
+                    print("Average impedence: \(averageImpedence)")
+                    let newScaleData = Scale_entity(context: self.context)
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                    let dateString = dateFormatter.string(from: Date())
+                    newScaleData.timestamp = dateString
+                    newScaleData.weight = averageWeight
+                    newScaleData.impedence = averageImpedence
+                    self.statusMessage = "The data has been recorded to the database."
+                }
+                
+                self.weightArray.removeAll()
+                self.impedenceArray.removeAll()
+                self.centralManager.cancelPeripheralConnection(peripheral)
+                return
             }
             
         }
+
         
         // Utility function to process the received hex string data
-        func decodeBodyCompositionData(_ hexString: String) -> String? {
+        func decodeBodyCompositionData(_ hexString: String) -> (body_weight: Double, miimpedance: Double)? {
             let data = "1b18" + hexString
             var byteArray = [UInt8]()
             var index = hexString.startIndex
@@ -689,8 +694,6 @@ enum scale_reciever {
                 let byteString = String(hexString[index..<hexString.index(index, offsetBy: 2)])
                 if let byte = UInt8(byteString, radix: 16) {
                     byteArray.append(byte)
-                } else {
-                    return nil // 解析字節失敗
                 }
                 index = hexString.index(index, offsetBy: 2)
             }
@@ -707,27 +710,20 @@ enum scale_reciever {
                 
                 let value1 = Int(substring1, radix: 16)!
                 let value2 = Int(substring2, radix: 16)!
-                var measured = Double(value2 << 8 | value1) * 0.01 / 2
-                
 
                 let start = data.index(data.startIndex, offsetBy: 4)
                 let end = data.index(start, offsetBy: 2)
                 let measunit = String(data[start..<end])
                     
-                let body_weight = String(format: "%.2f", measured)
-                let miimpedance = "NaN"
+                let body_weight = Double(value2 << 8 | value1) * 0.01 / 2
+                let miimpedance = 0.0
                 if hasImpedance{
-                    let miimpedance = String((Int(byteArray[8]) << 8) + Int(byteArray[9])) // 提取阻抗值
+                    let miimpedance = Double((Int(byteArray[8]) << 8) + Int(byteArray[9])) // 提取阻抗值
                 }
-                
-                let result = "\nisStabilized: \(isStabilized)\n" +
-                "Measured: \(body_weight) kg\n" +
-                "Impedance: \(miimpedance) ohm"
-                return result
+
+                return (body_weight, miimpedance)
             }
-            else{
-                return "ERROR"
-            }
+            return (0.0, 0.0)
         }
     }
     
@@ -818,25 +814,6 @@ enum scale_reciever {
 enum blood_pressure_reciever {
     struct PersistenceController {
         static let shared = PersistenceController()
-        
-        static var preview: PersistenceController = {
-            let result = PersistenceController(inMemory: true)
-            let viewContext = result.container.viewContext
-            for _ in 0..<10 {
-                let newItem = Item(context: viewContext)
-                newItem.timestamp = Date()
-            }
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-            return result
-        }()
-        
         let container: NSPersistentContainer
         
         init(inMemory: Bool = false) {
@@ -968,21 +945,38 @@ enum blood_pressure_reciever {
                 }
             }
         }
-        
-        // Delegate method to handle updates in the value of a characteristic
+
+        let context = persistenceController.container.viewContext
         func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
             if let value = characteristic.value, characteristic.uuid == CBUUID(string: "00002a35-0000-1000-8000-00805f9b34fb") {
                 
                 let hexString = value.map { String(format: "%02hhx", $0) }.joined()
 
                 DispatchQueue.main.async {
-                    if let convertedData = self.decodeBloodPressure(hexString: hexString) {
-                        self.receivedData = String(convertedData)
-                        self.statusMessage = "Received raw data: \(hexString)"
-                    }
-                    else {
-                        self.statusMessage = "Error in processing data."
-                    }
+                    let convertedData = self.decodeBloodPressure(hexString: hexString)
+                    let result = """
+                                Systolic: \(convertedData.systolicMmHg) mmHg
+                                Diastolic: \(convertedData.diastolicMmHg) mmHg
+                                Pulse Rate: \(convertedData.pulseRate)/min
+                                Mean Arterial Pressure: \(convertedData.meanArterialPressureMmHg) mmHg
+                                Measurement Status: \(convertedData.status)
+                                User ID: \(convertedData.userId)
+                                """
+                    
+                    self.receivedData = String(result)
+                    self.statusMessage = "Received raw data: \(hexString)"
+                    
+                    let newBPData = BP_entity(context: self.context)
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                    let dateString = dateFormatter.string(from: Date())
+                    newBPData.timestamp = dateString
+                    newBPData.systolic = Int16(convertedData.systolicMmHg)
+                    newBPData.diastolic = Int16(convertedData.diastolicMmHg)
+                    newBPData.pulse_rate = Int16(convertedData.pulseRate)
+                    newBPData.mean_arterial_pressure = Int16(convertedData.meanArterialPressureMmHg)
+                    newBPData.user_id = Int16(convertedData.userId)
+                    self.statusMessage = "The data has been recorded to the database."
                 }
             }
         }
@@ -1012,7 +1006,7 @@ enum blood_pressure_reciever {
             
             return "\(year)-\(month)-\(day) \(hours):\(minutes):\(seconds)"
         }
-        func bloodPressureDecode(dataBytes: [UInt8]) -> String {
+        func bloodPressureDecode(dataBytes: [UInt8]) -> (systolicMmHg: Int, diastolicMmHg: Int, pulseRate: Int, meanArterialPressureMmHg: Int, status: String, userId: Int){
             let flags = dataBytes[0]
             let bit0Set = flags & 0b00000001 != 0
             let bit1Set = flags & 0b00000010 != 0
@@ -1023,41 +1017,25 @@ enum blood_pressure_reciever {
             let systolicMmHg = !bit0Set ? Int(dataBytes[1]) + (Int(dataBytes[2]) << 8) : 0
             let diastolicMmHg = !bit0Set ? Int(dataBytes[3]) + (Int(dataBytes[4]) << 8) : 0
             let meanArterialPressureMmHg = !bit0Set ? Int(dataBytes[5]) + (Int(dataBytes[6]) << 8) : 0
-            let timestamp = bit1Set ? timeDecode(timestampBytes: Array(dataBytes[7..<14])) : ""
+            _ = bit1Set ? timeDecode(timestampBytes: Array(dataBytes[7..<14])) : ""
             let pulseRate = bit2Set ? Int(dataBytes[14]) + (Int(dataBytes[15]) << 8) : 0
             let userId = bit3Set ? Int(dataBytes[16]) : 0
             let measurementStatus = bit4Set ? "\(String(format: "%02x", dataBytes[17])) \(String(format: "%02x", dataBytes[16]))" : ""
+            let status = convertStatusString(measurementStatus)
             
-            let result = """
-                Systolic: \(systolicMmHg) mmHg
-                Diastolic: \(diastolicMmHg) mmHg
-                Pulse Rate: \(pulseRate)/min
-                Mean Arterial Pressure: \(meanArterialPressureMmHg) mmHg
-                Timestamp: \(timestamp)
-                User ID: \(userId)
-                Measurement Status: \(convertStatusString(measurementStatus))
-                """
-
-                return result
+            return (systolicMmHg, diastolicMmHg, pulseRate, meanArterialPressureMmHg, status, userId)
         }
         
 
-        func decodeBloodPressure(hexString: String) -> String? {
+        func decodeBloodPressure(hexString: String) -> (systolicMmHg: Int, diastolicMmHg: Int, pulseRate: Int, meanArterialPressureMmHg: Int, status: String, userId: Int) {
             guard let data = Data(fromHexEncodedString: hexString) else {
                 print("Invalid hex string")
-                return nil
+                return (0, 0, 0, 0, "0", 0)
             }
             
             let byteArray = [UInt8](data)
             return bloodPressureDecode(dataBytes: byteArray)
         }
-       
-        
-        
-        
-        // SwiftUI view to display the app UI
-        
-        
     }
     struct ContentView: View {
         @ObservedObject var bleManager = BLEManager()

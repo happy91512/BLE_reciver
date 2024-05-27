@@ -1,36 +1,61 @@
 import SwiftUI
 import CoreGraphics
 import CoreBluetooth
+import Lottie
 
 struct ContentView: View {
     @State private var selectedTab = 0
-
+    @State private var isAnimationCompleted = false
+    
+    let persistenceController = PersistenceController.shared
+    
     var body: some View {
-        TabView(selection: $selectedTab) {
-            MeasureView(selectedTab: $selectedTab)
-                .tabItem {
-                    Image(systemName: "chart.bar")
-                    Text("Measurement")
+        ZStack {
+            if !isAnimationCompleted {
+                VStack{
+                    LottieView(animation: .named("loading2"))
+                        .playing(loopMode: .loop)
+                        .frame(width: 400, height: 400)
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                withAnimation {
+                                    isAnimationCompleted = true
+                                }
+                            }
+                        }
+                    Text("Loading...")
+                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        .bold()
                 }
-                .tag(0)
+            } else {
+                TabView(selection: $selectedTab) {
+                    MeasureView(selectedTab: $selectedTab)
+                        .tabItem {
+                            Image(systemName: "chart.bar")
+                            Text("Measurement")
+                        }
+                        .tag(0)
 
+                    MonitorView()
+                        .tabItem {
+                            Image(systemName: "display")
+                            Text("Monitor")
+                        }
+                        .tag(1)
+                        .environment(\.managedObjectContext, persistenceController.container.viewContext)
 
-            MonitorView()
-                .tabItem {
-                    Image(systemName: "display")
-                    Text("Monitor")
+                    AccountView(selectedTab: $selectedTab)
+                        .tabItem {
+                            Image(systemName: "person")
+                            Text("Account")
+                        }
+                        .tag(2)
                 }
-                .tag(1)
-
-            AccountView(selectedTab: $selectedTab)
-                .tabItem {
-                    Image(systemName: "person")
-                    Text("Account")
-                }
-                .tag(2)
+            }
         }
     }
 }
+
 
 
 //struct AccountView: View {

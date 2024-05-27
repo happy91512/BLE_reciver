@@ -8,7 +8,6 @@
 import Foundation
 import CoreData
 
-
 struct PersistenceController {
     static let shared = PersistenceController()
 
@@ -91,7 +90,6 @@ let Scalestats: [ScaleStat] = [
 ]
 
 
-
 func insertData() {
     let context = persistenceController.container.viewContext
     
@@ -136,7 +134,7 @@ func insertData() {
     }
 }
 
-func deleteData(entity: NSManagedObject, at index: Int) {
+func deleteData(entity: NSManagedObject) {
     let context = PersistenceController.shared.container.viewContext
     context.delete(entity)
     

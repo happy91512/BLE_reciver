@@ -142,7 +142,6 @@ struct DeviceModelView: View {
     }
 }
 
-
 struct ReceiveView: View {
     let deviceName: String
     let persistenceController = BLE_scanner.thermometer_reciever.PersistenceController.shared
