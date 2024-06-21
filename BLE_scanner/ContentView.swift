@@ -50,6 +50,12 @@ struct ContentView: View {
                             Text("Account")
                         }
                         .tag(2)
+                    TryView()
+                        .tabItem {
+                            Image(systemName: "try")
+                            Text("try")
+                        }
+                        .tag(3)
                 }
             }
         }

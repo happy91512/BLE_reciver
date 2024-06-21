@@ -49,7 +49,7 @@ struct MonitorView: View {
                 TabView(selection: $selectedTab) {
                     let BPEntities_c = convertToBPEntities(fetchedResults: bpEntities)
                     let BPDeviceData = convertToBPDeviceData(entities: BPEntities_c)
-                    let BPColumn: [String] = ["Systolic", "Diastoli", "Mean Arterial Pressure", "Pulse Rate"]
+                    let BPColumn: [String] = ["Systolic", "Diastolic", "Mean Arterial Pressure", "Pulse Rate"]
                     VStack {
                         Text("血壓計")
                             .font(.title)

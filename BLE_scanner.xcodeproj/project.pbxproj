@@ -16,7 +16,22 @@
 		E84949BD2BA938BA00D1C893 /* BLE_scannerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84949BC2BA938BA00D1C893 /* BLE_scannerUITestsLaunchTests.swift */; };
 		E84949CA2BA9438600D1C893 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E84949C92BA9438600D1C893 /* Media.xcassets */; };
 		E84E9E6F2BCD27650062F477 /* MonitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84E9E6E2BCD27650062F477 /* MonitorView.swift */; };
-		E8E1FEC72BC3CBF200594FF6 /* Dev.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E8E1FEC52BC3CBF200594FF6 /* Dev.xcdatamodeld */; };
+		E85127F22C193F8C00996933 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = E85127F12C193F8C00996933 /* FirebaseAppCheck */; };
+		E85127FD2C19716E00996933 /* try_page.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85127FC2C19716E00996933 /* try_page.swift */; };
+		E85128002C19724E00996933 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = E85127FF2C19724E00996933 /* FirebaseFirestore */; };
+		E85128022C19724E00996933 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E85128012C19724E00996933 /* FirebaseFirestoreSwift */; };
+		E85128042C1972AA00996933 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E85128032C1972AA00996933 /* FirebaseFirestoreCombine-Community */; };
+		E87B67782C041A6300D59248 /* charts_tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87B67772C041A6300D59248 /* charts_tools.swift */; };
+		E87B677A2C04253A00D59248 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = E87B67792C04253A00D59248 /* DGCharts */; };
+		E88EEF582BD6018C00D17F19 /* BLE_scanner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E88EEF562BD6018C00D17F19 /* BLE_scanner.xcdatamodeld */; };
+		E8C475F32BD7845C00DA3BDB /* coredata_tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C475F22BD7845C00DA3BDB /* coredata_tool.swift */; };
+		E8CD2D252BD6456B00C18522 /* SimpleTable in Frameworks */ = {isa = PBXBuildFile; productRef = E8CD2D242BD6456B00C18522 /* SimpleTable */; };
+		E8CD2D272BD6456B00C18522 /* SimpleTableExamples in Frameworks */ = {isa = PBXBuildFile; productRef = E8CD2D262BD6456B00C18522 /* SimpleTableExamples */; };
+		E8F6C8A52C193A6000D7E6CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E8F6C8A42C193A5F00D7E6CB /* GoogleService-Info.plist */; };
+		E8F80DA92BF3029E00CA87C5 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = E8F80DA82BF3029E00CA87C5 /* Lottie */; };
+		E8F80DAD2BF3078100CA87C5 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = E8F80DAC2BF3078100CA87C5 /* loading.json */; };
+		E8F80DAF2BF30B3800CA87C5 /* loading2.json in Resources */ = {isa = PBXBuildFile; fileRef = E8F80DAE2BF30B3800CA87C5 /* loading2.json */; };
+		E8F80DB12BF3322500CA87C5 /* loading3.json in Resources */ = {isa = PBXBuildFile; fileRef = E8F80DB02BF3322500CA87C5 /* loading3.json */; };
 		E8FA8C872BC50DB900B10D26 /* MeasureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FA8C862BC50DB900B10D26 /* MeasureView.swift */; };
 		E8FA8C8A2BC50EB200B10D26 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FA8C892BC50EB200B10D26 /* AccountView.swift */; };
 /* End PBXBuildFile section */
@@ -51,8 +66,16 @@
 		E84949BC2BA938BA00D1C893 /* BLE_scannerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLE_scannerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E84949C92BA9438600D1C893 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		E84E9E6E2BCD27650062F477 /* MonitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorView.swift; sourceTree = "<group>"; };
+		E85127FC2C19716E00996933 /* try_page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = try_page.swift; sourceTree = "<group>"; };
+		E855E4802BE9C87400B0EA2D /* BLE_scanner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BLE_scanner.entitlements; sourceTree = "<group>"; };
+		E87B67772C041A6300D59248 /* charts_tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = charts_tools.swift; sourceTree = "<group>"; };
 		E88851C52BB29DC70086D556 /* BLE-scanner-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "BLE-scanner-Info.plist"; sourceTree = SOURCE_ROOT; };
-		E8E1FEC62BC3CBF200594FF6 /* Dev.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Dev.xcdatamodel; sourceTree = "<group>"; };
+		E88EEF572BD6018C00D17F19 /* BLE_scanner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BLE_scanner.xcdatamodel; sourceTree = "<group>"; };
+		E8C475F22BD7845C00DA3BDB /* coredata_tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coredata_tool.swift; sourceTree = "<group>"; };
+		E8F6C8A42C193A5F00D7E6CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E8F80DAC2BF3078100CA87C5 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = loading.json; path = BLE_scanner/loading.json; sourceTree = "<group>"; };
+		E8F80DAE2BF30B3800CA87C5 /* loading2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading2.json; sourceTree = "<group>"; };
+		E8F80DB02BF3322500CA87C5 /* loading3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading3.json; sourceTree = "<group>"; };
 		E8FA8C862BC50DB900B10D26 /* MeasureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureView.swift; sourceTree = "<group>"; };
 		E8FA8C892BC50EB200B10D26 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,6 +85,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E87B677A2C04253A00D59248 /* DGCharts in Frameworks */,
+				E8CD2D272BD6456B00C18522 /* SimpleTableExamples in Frameworks */,
+				E85128002C19724E00996933 /* FirebaseFirestore in Frameworks */,
+				E8CD2D252BD6456B00C18522 /* SimpleTable in Frameworks */,
+				E85128022C19724E00996933 /* FirebaseFirestoreSwift in Frameworks */,
+				E8F80DA92BF3029E00CA87C5 /* Lottie in Frameworks */,
+				E85128042C1972AA00996933 /* FirebaseFirestoreCombine-Community in Frameworks */,
+				E85127F22C193F8C00996933 /* FirebaseAppCheck in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,10 +116,13 @@
 		E84949932BA938B900D1C893 = {
 			isa = PBXGroup;
 			children = (
+				E8F6C8A42C193A5F00D7E6CB /* GoogleService-Info.plist */,
+				E8F80DAC2BF3078100CA87C5 /* loading.json */,
 				E849499E2BA938B900D1C893 /* BLE_scanner */,
 				E84949AF2BA938BA00D1C893 /* BLE_scannerTests */,
 				E84949B92BA938BA00D1C893 /* BLE_scannerUITests */,
 				E849499D2BA938B900D1C893 /* Products */,
+				E85127FE2C19724E00996933 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,16 +139,22 @@
 		E849499E2BA938B900D1C893 /* BLE_scanner */ = {
 			isa = PBXGroup;
 			children = (
+				E855E4802BE9C87400B0EA2D /* BLE_scanner.entitlements */,
 				E88851C52BB29DC70086D556 /* BLE-scanner-Info.plist */,
 				E8142B752BBD2980006FC109 /* Reciver.swift */,
-				E8E1FEC52BC3CBF200594FF6 /* Dev.xcdatamodeld */,
 				E849499F2BA938B900D1C893 /* BLE_scannerApp.swift */,
+				E85127FC2C19716E00996933 /* try_page.swift */,
 				E8FA8C892BC50EB200B10D26 /* AccountView.swift */,
 				E8FA8C862BC50DB900B10D26 /* MeasureView.swift */,
 				E84949C92BA9438600D1C893 /* Media.xcassets */,
 				E84949A12BA938B900D1C893 /* ContentView.swift */,
+				E8F80DB02BF3322500CA87C5 /* loading3.json */,
+				E8F80DAE2BF30B3800CA87C5 /* loading2.json */,
 				E84E9E6E2BCD27650062F477 /* MonitorView.swift */,
+				E87B67772C041A6300D59248 /* charts_tools.swift */,
+				E8C475F22BD7845C00DA3BDB /* coredata_tool.swift */,
 				E84949A52BA938BA00D1C893 /* Preview Content */,
+				E88EEF562BD6018C00D17F19 /* BLE_scanner.xcdatamodeld */,
 			);
 			path = BLE_scanner;
 			sourceTree = "<group>";
@@ -144,6 +184,13 @@
 			path = BLE_scannerUITests;
 			sourceTree = "<group>";
 		};
+		E85127FE2C19724E00996933 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -160,6 +207,16 @@
 			dependencies = (
 			);
 			name = BLE_scanner;
+			packageProductDependencies = (
+				E8CD2D242BD6456B00C18522 /* SimpleTable */,
+				E8CD2D262BD6456B00C18522 /* SimpleTableExamples */,
+				E8F80DA82BF3029E00CA87C5 /* Lottie */,
+				E87B67792C04253A00D59248 /* DGCharts */,
+				E85127F12C193F8C00996933 /* FirebaseAppCheck */,
+				E85127FF2C19724E00996933 /* FirebaseFirestore */,
+				E85128012C19724E00996933 /* FirebaseFirestoreSwift */,
+				E85128032C1972AA00996933 /* FirebaseFirestoreCombine-Community */,
+			);
 			productName = BLE_scanner;
 			productReference = E849499C2BA938B900D1C893 /* BLE_scanner.app */;
 			productType = "com.apple.product-type.application";
@@ -232,6 +289,12 @@
 				Base,
 			);
 			mainGroup = E84949932BA938B900D1C893;
+			packageReferences = (
+				E8CD2D232BD6439A00C18522 /* XCRemoteSwiftPackageReference "swiftui-simple-table" */,
+				E8F80DA72BF3029E00CA87C5 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				E8A53DC32BFAE82000639BBB /* XCRemoteSwiftPackageReference "Charts" */,
+				E8467D522C193E0E00071BF5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = E849499D2BA938B900D1C893 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -248,8 +311,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8F80DB12BF3322500CA87C5 /* loading3.json in Resources */,
 				E84949CA2BA9438600D1C893 /* Media.xcassets in Resources */,
+				E8F80DAF2BF30B3800CA87C5 /* loading2.json in Resources */,
 				E84949A72BA938BA00D1C893 /* Preview Assets.xcassets in Resources */,
+				E8F80DAD2BF3078100CA87C5 /* loading.json in Resources */,
+				E8F6C8A52C193A6000D7E6CB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,10 +343,13 @@
 			files = (
 				E84949A22BA938B900D1C893 /* ContentView.swift in Sources */,
 				E84E9E6F2BCD27650062F477 /* MonitorView.swift in Sources */,
-				E8E1FEC72BC3CBF200594FF6 /* Dev.xcdatamodeld in Sources */,
 				E8142B762BBD2980006FC109 /* Reciver.swift in Sources */,
 				E8FA8C872BC50DB900B10D26 /* MeasureView.swift in Sources */,
 				E84949A02BA938B900D1C893 /* BLE_scannerApp.swift in Sources */,
+				E87B67782C041A6300D59248 /* charts_tools.swift in Sources */,
+				E88EEF582BD6018C00D17F19 /* BLE_scanner.xcdatamodeld in Sources */,
+				E8C475F32BD7845C00DA3BDB /* coredata_tool.swift in Sources */,
+				E85127FD2C19716E00996933 /* try_page.swift in Sources */,
 				E8FA8C8A2BC50EB200B10D26 /* AccountView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,6 +511,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BLE_scanner/BLE_scanner.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BLE_scanner/Preview Content\"";
@@ -472,6 +543,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BLE_scanner/BLE_scanner.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BLE_scanner/Preview Content\"";
@@ -615,15 +687,93 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		E8467D522C193E0E00071BF5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.27.0;
+			};
+		};
+		E8A53DC32BFAE82000639BBB /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
+		E8CD2D232BD6439A00C18522 /* XCRemoteSwiftPackageReference "swiftui-simple-table" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/darrarski/swiftui-simple-table.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		E8F80DA72BF3029E00CA87C5 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E85127F12C193F8C00996933 /* FirebaseAppCheck */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E8467D522C193E0E00071BF5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAppCheck;
+		};
+		E85127FF2C19724E00996933 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E8467D522C193E0E00071BF5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		E85128012C19724E00996933 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E8467D522C193E0E00071BF5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		E85128032C1972AA00996933 /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E8467D522C193E0E00071BF5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		E87B67792C04253A00D59248 /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E8A53DC32BFAE82000639BBB /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
+		};
+		E8CD2D242BD6456B00C18522 /* SimpleTable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E8CD2D232BD6439A00C18522 /* XCRemoteSwiftPackageReference "swiftui-simple-table" */;
+			productName = SimpleTable;
+		};
+		E8CD2D262BD6456B00C18522 /* SimpleTableExamples */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E8CD2D232BD6439A00C18522 /* XCRemoteSwiftPackageReference "swiftui-simple-table" */;
+			productName = SimpleTableExamples;
+		};
+		E8F80DA82BF3029E00CA87C5 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E8F80DA72BF3029E00CA87C5 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
+
 /* Begin XCVersionGroup section */
-		E8E1FEC52BC3CBF200594FF6 /* Dev.xcdatamodeld */ = {
+		E88EEF562BD6018C00D17F19 /* BLE_scanner.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				E8E1FEC62BC3CBF200594FF6 /* Dev.xcdatamodel */,
+				E88EEF572BD6018C00D17F19 /* BLE_scanner.xcdatamodel */,
 			);
-			currentVersion = E8E1FEC62BC3CBF200594FF6 /* Dev.xcdatamodel */;
-			name = Dev.xcdatamodeld;
-			path = /Users/teddddd/Documents/code/cathay_intern/ios_app_dev/Dev/Dev/Dev.xcdatamodeld;
+			currentVersion = E88EEF572BD6018C00D17F19 /* BLE_scanner.xcdatamodel */;
+			name = BLE_scanner.xcdatamodeld;
+			path = /Users/teddddd/Documents/code/cathay_intern/ios_app_dev/BLE_reciver/BLE_scanner/BLE_scanner.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

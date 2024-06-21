@@ -162,6 +162,9 @@ enum thermometer_reciever {
                             let dateString = dateFormatter.string(from: Date())
                             newThermoData.timestamp = dateString
                             newThermoData.temperature = averageTemperature
+                            let now = Date()
+                            let thermoData = thermometer(temperature: averageTemperature, timestamp: now)
+                            createMedicalRecord(deviceType: .thermometer, deviceData: thermoData)
                         }
                         self.tempertureArray.removeAll()
                         self.statusMessage = "The data has been recorded to the database."
@@ -429,6 +432,9 @@ enum OP_reciever {
                             newSPO2Data.timestamp = dateString
                             newSPO2Data.spo2 = Int16(averageOP)
                             newSPO2Data.pulse_rate = Int16(averageHR)
+                            let now = Date()
+                            let spo2Data = SPO2(SPO2: averageOP, pulseRate: averageHR, timestamp: now)
+                            createMedicalRecord(deviceType: .SPO2, deviceData: spo2Data)
                         }
                         if HKHealthStore.isHealthDataAvailable() {
                             let healthStore = HKHealthStore()
@@ -673,6 +679,9 @@ enum scale_reciever {
                     newScaleData.timestamp = dateString
                     newScaleData.weight = averageWeight
                     newScaleData.impedence = averageImpedence
+                    let now = Date()
+                    let scaleData = scale(weight: averageWeight, impedence: averageImpedence, timestamp: now)
+                    createMedicalRecord(deviceType: .scale, deviceData: scaleData)
                     self.statusMessage = "The data has been recorded to the database."
                 }
                 
@@ -976,6 +985,11 @@ enum blood_pressure_reciever {
                     newBPData.pulse_rate = Int16(convertedData.pulseRate)
                     newBPData.mean_arterial_pressure = Int16(convertedData.meanArterialPressureMmHg)
                     newBPData.user_id = Int16(convertedData.userId)
+                    
+                    let now = Date()
+                    let bpData = bloodPressure(diastolic: convertedData.diastolicMmHg, systolic: convertedData.systolicMmHg, meanArterialPressure: convertedData.meanArterialPressureMmHg, pulseRate: convertedData.pulseRate, timestamp: now)
+                    
+                    createMedicalRecord(deviceType: .bloodPressure, deviceData: bpData)
                     self.statusMessage = "The data has been recorded to the database."
                 }
             }
