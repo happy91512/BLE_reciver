@@ -50,25 +50,24 @@ struct ContentView: View {
                             Text("Account")
                         }
                         .tag(2)
-                    TryView()
+                    FireStoreView()
                         .tabItem {
                             Image(systemName: "try")
-                            Text("try")
+                            Text("FireStore")
                         }
                         .tag(3)
+                    HealthKitView()
+                        .tabItem {
+                            Image(systemName: "try")
+                            Text("HealthKit")
+                        }
+                        .tag(4)
                 }
             }
         }
     }
 }
 
-
-
-//struct AccountView: View {
-//    var body: some View {
-//        Text("Account Page")
-//    }
-//}
 
 
 

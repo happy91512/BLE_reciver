@@ -17,10 +17,11 @@
 		E84949CA2BA9438600D1C893 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E84949C92BA9438600D1C893 /* Media.xcassets */; };
 		E84E9E6F2BCD27650062F477 /* MonitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84E9E6E2BCD27650062F477 /* MonitorView.swift */; };
 		E85127F22C193F8C00996933 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = E85127F12C193F8C00996933 /* FirebaseAppCheck */; };
-		E85127FD2C19716E00996933 /* try_page.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85127FC2C19716E00996933 /* try_page.swift */; };
+		E85127FD2C19716E00996933 /* FireStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85127FC2C19716E00996933 /* FireStore.swift */; };
 		E85128002C19724E00996933 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = E85127FF2C19724E00996933 /* FirebaseFirestore */; };
 		E85128022C19724E00996933 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E85128012C19724E00996933 /* FirebaseFirestoreSwift */; };
 		E85128042C1972AA00996933 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E85128032C1972AA00996933 /* FirebaseFirestoreCombine-Community */; };
+		E855A8F82C38F8AA00DE961F /* HealthKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E855A8F72C38F8AA00DE961F /* HealthKitView.swift */; };
 		E87B67782C041A6300D59248 /* charts_tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87B67772C041A6300D59248 /* charts_tools.swift */; };
 		E87B677A2C04253A00D59248 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = E87B67792C04253A00D59248 /* DGCharts */; };
 		E88EEF582BD6018C00D17F19 /* BLE_scanner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E88EEF562BD6018C00D17F19 /* BLE_scanner.xcdatamodeld */; };
@@ -66,7 +67,8 @@
 		E84949BC2BA938BA00D1C893 /* BLE_scannerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLE_scannerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E84949C92BA9438600D1C893 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		E84E9E6E2BCD27650062F477 /* MonitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorView.swift; sourceTree = "<group>"; };
-		E85127FC2C19716E00996933 /* try_page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = try_page.swift; sourceTree = "<group>"; };
+		E85127FC2C19716E00996933 /* FireStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStore.swift; sourceTree = "<group>"; };
+		E855A8F72C38F8AA00DE961F /* HealthKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitView.swift; sourceTree = "<group>"; };
 		E855E4802BE9C87400B0EA2D /* BLE_scanner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BLE_scanner.entitlements; sourceTree = "<group>"; };
 		E87B67772C041A6300D59248 /* charts_tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = charts_tools.swift; sourceTree = "<group>"; };
 		E88851C52BB29DC70086D556 /* BLE-scanner-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "BLE-scanner-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -143,7 +145,7 @@
 				E88851C52BB29DC70086D556 /* BLE-scanner-Info.plist */,
 				E8142B752BBD2980006FC109 /* Reciver.swift */,
 				E849499F2BA938B900D1C893 /* BLE_scannerApp.swift */,
-				E85127FC2C19716E00996933 /* try_page.swift */,
+				E85127FC2C19716E00996933 /* FireStore.swift */,
 				E8FA8C892BC50EB200B10D26 /* AccountView.swift */,
 				E8FA8C862BC50DB900B10D26 /* MeasureView.swift */,
 				E84949C92BA9438600D1C893 /* Media.xcassets */,
@@ -155,6 +157,7 @@
 				E8C475F22BD7845C00DA3BDB /* coredata_tool.swift */,
 				E84949A52BA938BA00D1C893 /* Preview Content */,
 				E88EEF562BD6018C00D17F19 /* BLE_scanner.xcdatamodeld */,
+				E855A8F72C38F8AA00DE961F /* HealthKitView.swift */,
 			);
 			path = BLE_scanner;
 			sourceTree = "<group>";
@@ -344,12 +347,13 @@
 				E84949A22BA938B900D1C893 /* ContentView.swift in Sources */,
 				E84E9E6F2BCD27650062F477 /* MonitorView.swift in Sources */,
 				E8142B762BBD2980006FC109 /* Reciver.swift in Sources */,
+				E855A8F82C38F8AA00DE961F /* HealthKitView.swift in Sources */,
 				E8FA8C872BC50DB900B10D26 /* MeasureView.swift in Sources */,
 				E84949A02BA938B900D1C893 /* BLE_scannerApp.swift in Sources */,
 				E87B67782C041A6300D59248 /* charts_tools.swift in Sources */,
 				E88EEF582BD6018C00D17F19 /* BLE_scanner.xcdatamodeld in Sources */,
 				E8C475F32BD7845C00DA3BDB /* coredata_tool.swift in Sources */,
-				E85127FD2C19716E00996933 /* try_page.swift in Sources */,
+				E85127FD2C19716E00996933 /* FireStore.swift in Sources */,
 				E8FA8C8A2BC50EB200B10D26 /* AccountView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
