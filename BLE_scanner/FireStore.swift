@@ -5,7 +5,7 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 
-struct TryView: View {
+struct FireStoreView: View {
     @StateObject private var viewModel = MedicalDataViewModel()
     @State private var selectedDeviceType: DeviceType = .bloodPressure
 
@@ -43,7 +43,7 @@ struct TryView: View {
                 }) {
                     Text("Add Data")
                 }
-
+                
                 Button(action: {
                     viewModel.fetchAllData()
 //                    switch selectedDeviceType {
@@ -59,7 +59,7 @@ struct TryView: View {
                 }) {
                     Text("Fetch Data")
                 }
-
+                       
                 List {
                     switch selectedDeviceType {
                     case .bloodPressure:
